@@ -26,7 +26,7 @@ public struct AliyunpanClientConfig {
     }
 }
 
-public class AliyunpanClient {
+open class AliyunpanClient {
     private let config: AliyunpanClientConfig
     
     private var tokenStorageKey: String {

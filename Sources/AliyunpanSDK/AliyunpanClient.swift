@@ -26,7 +26,7 @@ public struct AliyunpanClientConfig {
     }
 }
 
-open class AliyunpanClient {
+public class AliyunpanClient {
     private let config: AliyunpanClientConfig
     
     private var tokenStorageKey: String {
@@ -76,6 +76,17 @@ open class AliyunpanClient {
     /// 强制清除 token 持久化
     @MainActor public func cleanToken() {
         token = nil
+    }
+    
+    @MainActor public func updateTokenWith(tokenData: Data?) {
+        if let data = tokenData {
+            token = try? JSONParameterDecoder().decode(AliyunpanToken.self, from: data)
+        }
+    }
+    
+    @MainActor public func getTokenData() -> Data? {
+        let data = try? JSONParameterEncoder().encode(token)
+        return data
     }
     
     /// 授权

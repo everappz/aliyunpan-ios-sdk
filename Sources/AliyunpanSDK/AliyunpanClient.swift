@@ -78,6 +78,10 @@ public class AliyunpanClient {
         token = nil
     }
     
+    @MainActor public func isTokenExpired() -> Bool {
+        return token?.isExpired ?? true
+    }
+    
     @MainActor public func updateTokenWith(tokenData: Data?) {
         if let data = tokenData {
             token = try? JSONParameterDecoder().decode(AliyunpanToken.self, from: data)

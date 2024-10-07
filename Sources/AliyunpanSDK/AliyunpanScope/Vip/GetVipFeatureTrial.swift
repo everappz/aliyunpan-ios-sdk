@@ -6,6 +6,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanVIPScope {
     /// 开始试用付费功能
     public class GetVipFeatureTrial: AliyunpanCommand {

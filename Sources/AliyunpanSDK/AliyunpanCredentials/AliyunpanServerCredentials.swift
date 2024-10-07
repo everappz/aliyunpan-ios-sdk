@@ -8,11 +8,13 @@
 import Foundation
 
 /// 三方业务 Server 抽象协议
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public protocol AliyunpanBizServer {
     /// 根据 appId、authCode 请求 token
     func requestToken(appId: String, authCode: String) async throws -> AliyunpanToken
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanServerCredentials: AliyunpanCredentialsProtocol {
     private let server: AliyunpanBizServer
     

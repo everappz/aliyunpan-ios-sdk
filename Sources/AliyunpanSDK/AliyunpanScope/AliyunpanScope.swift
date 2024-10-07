@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct AliyunpanScope {
     public typealias User = AliyunpanUserScope
     public typealias VIP = AliyunpanVIPScope
@@ -15,10 +16,13 @@ public struct AliyunpanScope {
     typealias Internal = AliyunpanInternalScope
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanUserScope {}
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanVIPScope {}
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanFileScope {
     public enum OrderBy: String, Codable {
         case created_at
@@ -34,6 +38,8 @@ public class AliyunpanFileScope {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanVideoScope {}
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanInternalScope {}

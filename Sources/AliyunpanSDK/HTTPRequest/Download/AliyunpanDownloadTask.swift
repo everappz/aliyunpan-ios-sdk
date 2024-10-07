@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 protocol AliyunpanDownloadTaskDelegate: AnyObject {
     func getFileDownloadUrl(driveId: String, fileId: String) async throws -> AliyunpanScope.File.GetFileDownloadUrl.Response
     
@@ -18,6 +19,7 @@ protocol AliyunpanDownloadTaskDelegate: AnyObject {
 }
 
 /// 使用 actor 实现串行刷新 downloadURL
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 actor DownloadURLActor {
     private var url: URL?
     private var expiration: Date?
@@ -51,6 +53,7 @@ actor DownloadURLActor {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanDownloadTask: NSObject, Identifiable {
     public lazy var id: String = "\(file.drive_id)_\(file.file_id)_\(Int.random(in: 0...1000))"
 
@@ -167,6 +170,7 @@ public class AliyunpanDownloadTask: NSObject, Identifiable {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanDownloadTask {
     private var progress: Float {
         let totalSize = file.size ?? 0
@@ -234,6 +238,7 @@ extension AliyunpanDownloadTask {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanDownloadTask: DownloadChunkOperationDelegate {
     func chunkOperation(_ operation: DownloadChunkOperation, didUpdatedState state: AsyncOperation.State) {
         let chunkIndex = chunks.firstIndex(where: { $0.start == operation.chunk.start }) ?? -1
@@ -300,6 +305,7 @@ extension AliyunpanDownloadTask: DownloadChunkOperationDelegate {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanDownloadTask: DownloadChunkOperationDataSource {
     func getFileDownloadUrl() async throws -> URL {
         guard let delegate else {

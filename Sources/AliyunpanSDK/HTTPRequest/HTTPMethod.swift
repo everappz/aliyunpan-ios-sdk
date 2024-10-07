@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"

@@ -6,6 +6,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanVideoScope {
     /// 获取最近播放列表
     public class GetVideoRecentList: AliyunpanCommand {

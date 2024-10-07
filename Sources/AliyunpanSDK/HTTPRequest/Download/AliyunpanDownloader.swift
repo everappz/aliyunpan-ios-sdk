@@ -7,8 +7,10 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public typealias DownloadTasks = [AliyunpanDownloadTask]
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension DownloadTasks {
     mutating func cancel(_ task: Element) {
         removeAll(where: {
@@ -17,6 +19,7 @@ extension DownloadTasks {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public protocol AliyunpanDownloadDelegate: AnyObject {
     /// 下载速度更新
     @MainActor
@@ -28,6 +31,7 @@ public protocol AliyunpanDownloadDelegate: AnyObject {
 }
 
 /// 下载器
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanDownloader: NSObject {
     /// 最大并发数，默认为10
     public var maxConcurrentOperationCount: Int {
@@ -80,6 +84,7 @@ public class AliyunpanDownloader: NSObject {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanDownloader {
     /// 添加代理
     public func addDelegate(_ delegate: AliyunpanDownloadDelegate) {
@@ -131,6 +136,7 @@ extension AliyunpanDownloader {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanDownloader: AliyunpanDownloadTaskDelegate {
     func getFileDownloadUrl(driveId: String, fileId: String) async throws -> AliyunpanScope.File.GetFileDownloadUrl.Response {
         guard let client else {

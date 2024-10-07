@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public protocol AliyunpanCommand {
     associatedtype Request
     associatedtype Response: Decodable
@@ -18,11 +19,13 @@ public protocol AliyunpanCommand {
     var requestData: Data? { get }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanCommand where Request == Void {
     public var request: Request? { nil }
     public var requestData: Data? { nil }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanCommand where Request: Encodable {
     public var requestData: Data? {
         if let request {

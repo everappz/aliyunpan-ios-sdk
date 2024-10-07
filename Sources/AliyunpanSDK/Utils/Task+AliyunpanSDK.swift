@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension Task where Success == Never, Failure == Never {
     static func sleep(seconds: TimeInterval) async throws {
         try await sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
@@ -14,6 +15,7 @@ extension Task where Success == Never, Failure == Never {
 }
 
 /// https://forums.swift.org/t/running-an-async-task-with-a-timeout/49733/28
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 @discardableResult
 public func withTimeout<R>(
     seconds: TimeInterval,

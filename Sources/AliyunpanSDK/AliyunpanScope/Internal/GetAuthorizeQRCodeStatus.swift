@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public enum AliyunpanAuthorizeQRCodeStatus: String, Codable {
     /// 等待扫码
     case waitLogin = "WaitLogin"
@@ -18,6 +19,7 @@ public enum AliyunpanAuthorizeQRCodeStatus: String, Codable {
     case qrCodeExpired = "QRCodeExpired"
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanInternalScope {
     /// 将用户浏览器重定向到云盘登录授权页面上
     public class GetAuthorizeQRCodeStatus: AliyunpanCommand {

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension Dictionary where Key == String {
     fileprivate func jsonToQueryItems() -> [URLQueryItem] {
         keys.sorted(by: <).compactMap { key -> [URLQueryItem]? in
@@ -24,6 +25,7 @@ extension Dictionary where Key == String {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension OperationQueue {
     convenience init(
         name: String,
@@ -36,14 +38,17 @@ extension OperationQueue {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension OperationQueue {
     static let rootQueue = OperationQueue(name: "com.aliyunpanSDK.session.rootQueue")
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension URLSession {
     static let rootSession = URLSession(configuration: .default)
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class HTTPRequest<Command: AliyunpanCommand> {
     private var headers = HTTPHeaders.default
     private var decoder = JSONParameterDecoder.default

@@ -19,6 +19,7 @@ import TVUIKit
 
 import AuthenticationServices
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class Platform: NSObject {
     @MainActor
     static func canOpenURL(_ url: URL) -> Bool {

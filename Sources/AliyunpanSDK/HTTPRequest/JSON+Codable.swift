@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class JSONParameterEncoder: JSONEncoder {
     static let `default` = JSONParameterEncoder()
     
@@ -21,6 +22,7 @@ class JSONParameterEncoder: JSONEncoder {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class JSONParameterDecoder: JSONDecoder {
     static let `default` = JSONParameterDecoder()
     

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class DebugDescription {
     static func description(of request: URLRequest) -> String {
         let requestSummary = "\(request.httpMethod ?? "Unknown") \(request)"
@@ -64,6 +65,7 @@ class DebugDescription {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension String {
     fileprivate func indentingNewlines(by spaceCount: Int = 4) -> String {
         let spaces = String(repeating: " ", count: spaceCount)

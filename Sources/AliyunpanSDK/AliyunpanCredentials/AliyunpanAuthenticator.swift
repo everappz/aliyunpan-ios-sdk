@@ -16,6 +16,7 @@ extension Notification.Name {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanAuthenticator: NSObject {
     private var webAuthorizeHandler: ((Result<String, Error>) -> Void)?
+    private var session: ASWebAuthenticationSession?
     
     @MainActor private func openURL(_ url: URL) async {
         await Platform.open(url)
@@ -78,7 +79,10 @@ class AliyunpanAuthenticator: NSObject {
     func startAuthenticationSession(_ url: URL) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
             if #available(iOS 13, macOS 10.15, tvOS 16.0, visionOS 1, *) {
-                let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "smartdrive") { url, error in
+                self.session = ASWebAuthenticationSession(url: url, callbackURLScheme: "smartdrive") { url, error in
+                    
+                    self.session = nil
+                    
                     if let error {
                         continuation.resume(with: .failure(error))
                         return
@@ -93,10 +97,11 @@ class AliyunpanAuthenticator: NSObject {
                 }
 #if canImport(TVUIKit)
 #else
-                session.presentationContextProvider = self
+                self.session?.presentationContextProvider = self
+                self.session?.prefersEphemeralWebBrowserSession = true
 #endif
                 DispatchQueue.main.async {
-                    session.start()
+                    self.session?.start()
                 }
             } else {
                 continuation.resume(with: .failure(AliyunpanError.AuthorizeError.invalidPlatform))

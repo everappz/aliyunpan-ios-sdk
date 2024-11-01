@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension Bundle {
     var executableName: String {
         (infoDictionary?["CFBundleExecutable"] as? String) ??
@@ -28,7 +27,6 @@ extension Bundle {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct HTTPHeader: Comparable, CustomStringConvertible {
     let name: String
     let value: String
@@ -42,7 +40,6 @@ public struct HTTPHeader: Comparable, CustomStringConvertible {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension Collection<String> {
     func qualityEncoded() -> String {
         enumerated().map { index, encoding in
@@ -52,7 +49,6 @@ extension Collection<String> {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeader {
     static func accept(_ value: String) -> Self {
         HTTPHeader(name: "Accept", value: value)
@@ -79,7 +75,6 @@ extension HTTPHeader {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeader {
     static let defaultContentType = HTTPHeader.contentType("application/json")
     static let defaultAcceptEncoding = HTTPHeader.acceptEncoding(["br", "gzip", "deflate"].qualityEncoded())
@@ -127,7 +122,6 @@ extension HTTPHeader {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct HTTPHeaders {
     private var headers: [HTTPHeader] = []
     
@@ -198,14 +192,12 @@ public struct HTTPHeaders {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeaders: Sequence {
     public func makeIterator() -> IndexingIterator<[HTTPHeader]> {
         headers.makeIterator()
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeaders: Collection {
     public var startIndex: Int {
         headers.startIndex
@@ -224,14 +216,12 @@ extension HTTPHeaders: Collection {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeaders: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: HTTPHeader...) {
         self.init(elements)
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeaders: CustomStringConvertible {
     public var description: String {
         headers.map(\.description)
@@ -239,7 +229,6 @@ extension HTTPHeaders: CustomStringConvertible {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPHeaders {
     static let `default`: HTTPHeaders = [
         HTTPHeader.defaultUserAgent,
@@ -248,7 +237,6 @@ extension HTTPHeaders {
     ]
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension URLRequest {
     var headers: HTTPHeaders {
         get {
@@ -260,7 +248,6 @@ extension URLRequest {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension HTTPURLResponse {
     /// Returns `allHeaderFields` as `HTTPHeaders`.
     public var headers: HTTPHeaders {

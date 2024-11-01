@@ -8,7 +8,6 @@
 import Foundation
 
 /// 二维码授权容器协议
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public protocol AliyunpanQRCodeContainer {
     /// 展示二维码
     @MainActor func showAliyunpanAuthorizeQRCode(with url: URL)
@@ -17,7 +16,6 @@ public protocol AliyunpanQRCodeContainer {
     @MainActor func authorizeQRCodeStatusUpdated(_ status: AliyunpanAuthorizeQRCodeStatus)
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanQRCodeCredentials: AliyunpanCredentialsProtocol {
     let codeVerifier: String
     let codeChallenge: String

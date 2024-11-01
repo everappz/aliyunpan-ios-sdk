@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AsyncOperation: Operation {
     @objc enum State: Int {
         case ready
@@ -76,7 +75,6 @@ class AsyncOperation: Operation {
     func updateState(state: State, oldValue: State) {}
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AsyncThrowOperation<Success, Failure: Error>: AsyncOperation {
     var result: Result<Success, Failure>?
 }

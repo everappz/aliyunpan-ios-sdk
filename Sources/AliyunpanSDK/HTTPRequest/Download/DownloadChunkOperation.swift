@@ -7,19 +7,16 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 protocol DownloadChunkOperationDelegate: AnyObject {
     func chunkOperation(_ operation: DownloadChunkOperation, didUpdatedState state: AsyncOperation.State)
     
     func chunkOperationDidWriteData(_ bytesWritten: Int64)
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 protocol DownloadChunkOperationDataSource: AnyObject {
     func getFileDownloadUrl() async throws -> URL
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class DownloadChunkOperation: AsyncThrowOperation<URL, Error> {
     class StateProvider {
         let completionHandler: (Result<Data, Error>) -> Void
@@ -116,7 +113,6 @@ class DownloadChunkOperation: AsyncThrowOperation<URL, Error> {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension DownloadChunkOperation {
     private func download(
         chunk: AliyunpanDownloadChunk,
@@ -155,7 +151,6 @@ extension DownloadChunkOperation {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension DownloadChunkOperation {
     private func chunkOperationDidCompleteWithError(_ error: Error) {
         stateProvider?.completionHandler(.failure(error))
@@ -168,7 +163,6 @@ extension DownloadChunkOperation {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension DownloadChunkOperation: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error {

@@ -6,7 +6,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanFileScope {
     /// 放入回收站
     public class TrashFileToRecyclebin: AliyunpanCommand {

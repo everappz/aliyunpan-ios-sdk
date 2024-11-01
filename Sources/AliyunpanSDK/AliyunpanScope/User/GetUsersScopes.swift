@@ -6,7 +6,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanUserScope {
     /// 通过 access_token 获取用户权限信息
     public class GetUsersScopes: AliyunpanCommand {

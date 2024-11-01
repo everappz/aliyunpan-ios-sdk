@@ -6,7 +6,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanFileScope {
     /// 刷新获取上传地址
     public class GetUploadURL: AliyunpanCommand {

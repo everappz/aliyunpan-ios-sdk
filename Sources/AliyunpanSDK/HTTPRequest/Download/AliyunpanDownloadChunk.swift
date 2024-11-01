@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct AliyunpanDownloadChunk: Equatable {
     public let start: Int64
     public let end: Int64

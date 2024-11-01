@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct AliyunpanClientConfig {
     /// 应用 ID
     public let appId: String
@@ -27,7 +26,6 @@ public struct AliyunpanClientConfig {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanClient {
     private let config: AliyunpanClientConfig
     
@@ -151,7 +149,6 @@ public class AliyunpanClient {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanToken {
     /// 发送请求
     ///

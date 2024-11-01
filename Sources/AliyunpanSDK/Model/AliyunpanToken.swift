@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct AliyunpanToken: Codable {
     /// Bearer
     public let token_type: String
@@ -35,7 +34,6 @@ public struct AliyunpanToken: Codable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanToken: Hashable, Equatable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(token_type)
@@ -45,7 +43,6 @@ extension AliyunpanToken: Hashable, Equatable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanToken: CustomStringConvertible {
     public var description: String {
         """

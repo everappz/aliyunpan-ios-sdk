@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanMessage {
     let state: String
     let originalURL: URL
@@ -24,7 +23,6 @@ class AliyunpanMessage {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanAuthorizeMessage: AliyunpanMessage {
     let authCode: String?
     let error: String?

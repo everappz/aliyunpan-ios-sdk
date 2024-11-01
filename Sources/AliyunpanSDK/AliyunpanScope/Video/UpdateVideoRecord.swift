@@ -6,7 +6,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanVideoScope {
     /// 更新播放进度
     public class UpdateVideoRecord: AliyunpanCommand {

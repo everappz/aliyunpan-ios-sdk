@@ -13,7 +13,6 @@ extension Notification.Name {
 }
 
 /// 用于获取 AuthCode
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 class AliyunpanAuthenticator: NSObject {
     private var webAuthorizeHandler: ((Result<String, Error>) -> Void)?
     private var session: ASWebAuthenticationSession?
@@ -120,7 +119,6 @@ class AliyunpanAuthenticator: NSObject {
 
 #if canImport(TVUIKit)
 #else
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanAuthenticator: ASWebAuthenticationPresentationContextProviding {
     @MainActor
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {

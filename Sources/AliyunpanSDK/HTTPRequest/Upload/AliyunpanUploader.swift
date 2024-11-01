@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension FileManager {
     func dataChunk(at path: URL, in range: Range<Int>) throws -> Data {
         let fileHandle = try FileHandle(forReadingFrom: path)
@@ -24,7 +23,6 @@ extension FileManager {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 fileprivate extension Array where Element == AliyunpanFile.PartInfo {
     init(fileSize: Int64, chunkSize: Int64) {
         self = stride(from: 0, to: fileSize, by: Int64.Stride(chunkSize)).enumerated().map {
@@ -38,7 +36,6 @@ fileprivate extension Array where Element == AliyunpanFile.PartInfo {
 }
 
 /// 上传器
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanUploader: NSObject {
     weak var client: AliyunpanClient?
     /// 每 2G 分片

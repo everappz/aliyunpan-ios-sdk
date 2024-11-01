@@ -6,7 +6,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanInternalScope {
     /// 通过code获取access_token或通过refresh_token刷新access_token。code10分钟内有效，只能用一次
     public class GetAccessToken: AliyunpanCommand {

@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public struct AliyunpanFile: Codable {
     public let drive_id: String
     public let file_id: String
@@ -81,7 +80,6 @@ public struct AliyunpanFile: Codable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanFile: CustomStringConvertible {
     public var description: String {
         """
@@ -107,7 +105,6 @@ extension AliyunpanFile: CustomStringConvertible {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanFile {
     /// 是否文件夹
     public var isFolder: Bool {
@@ -120,7 +117,6 @@ extension AliyunpanFile {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension AliyunpanFile {
     public enum FileCategory: String, Codable {
         case video

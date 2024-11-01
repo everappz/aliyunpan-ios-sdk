@@ -8,7 +8,6 @@
 import Foundation
 import CryptoKit
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 extension Digest {
     var bytes: [UInt8] { Array(makeIterator()) }
     
@@ -17,7 +16,6 @@ extension Digest {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, visionOS 1.0, *)
 public class AliyunpanCrypto {
     /// 大数据量 sha1 and hex
     public static func sha1AndHex(_ fileURL: URL) -> String? {

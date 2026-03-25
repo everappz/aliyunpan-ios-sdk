@@ -65,7 +65,7 @@ class AliyunpanQRCodeCredentials: AliyunpanCredentialsProtocol {
         }
     }
     
-    func authorize(appId: String, scope: String) async throws -> AliyunpanToken {
+    func authorize(appId: String, scope: String, bundleId: String) async throws -> AliyunpanToken {
         // 请求二维码
         let response = try await HTTPRequest(
             command:

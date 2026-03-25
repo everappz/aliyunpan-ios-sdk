@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AliyunpanCredentialsProtocol {
-    func authorize(appId: String, scope: String) async throws -> AliyunpanToken
+    func authorize(appId: String, scope: String, bundleId: String) async throws -> AliyunpanToken
 }
 
 public enum AliyunpanCredentials {

@@ -8,6 +8,7 @@
 import Foundation
 
 public struct AliyunpanClientConfig {
+    public var bundleId: String
     /// 应用 ID
     public let appId: String
     /// 申请权限
@@ -19,10 +20,11 @@ public struct AliyunpanClientConfig {
     ///   - appId: 应用 ID
     ///   - scope: 申请权限
     ///   - identifier: 业务方自定义 id
-    public init(appId: String, scope: String, identifier: String? = nil) {
+    public init(appId: String, scope: String, identifier: String? = nil, bundleId: String) {
         self.appId = appId
         self.scope = scope
         self.identifier = identifier
+        self.bundleId = bundleId
     }
 }
 
@@ -69,8 +71,8 @@ public class AliyunpanClient {
         }
     }
     
-    public convenience init(appId: String, scope: String, identifier: String? = nil) {
-        self.init(.init(appId: appId, scope: scope, identifier: identifier))
+    public convenience init(appId: String, scope: String, identifier: String? = nil, bundleId: String) {
+        self.init(.init(appId: appId, scope: scope, identifier: identifier, bundleId: bundleId))
     }
     
     /// 强制清除 token 持久化
@@ -106,7 +108,8 @@ public class AliyunpanClient {
         }
         let token = try await credentials.implement.authorize(
             appId: config.appId,
-            scope: config.scope
+            scope: config.scope,
+            bundleId: config.bundleId
         )
         await MainActor.run {
             self.token = token

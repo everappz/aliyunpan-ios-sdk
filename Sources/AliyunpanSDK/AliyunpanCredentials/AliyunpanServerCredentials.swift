@@ -20,7 +20,7 @@ class AliyunpanServerCredentials: AliyunpanCredentialsProtocol {
         self.server = server
     }
 
-    func authorize(appId: String, scope: String) async throws -> AliyunpanToken {
+    func authorize(appId: String, scope: String, bundleId: String) async throws -> AliyunpanToken {
         let redirectUri = try await HTTPRequest(
             command:
                 AliyunpanScope.Internal.Authorize(
@@ -28,7 +28,8 @@ class AliyunpanServerCredentials: AliyunpanCredentialsProtocol {
                         client_id: appId,
                         redirect_uri: "oob",
                         scope: scope,
-                        response_type: "code")))
+                        response_type: "code",
+                        bundle_id: bundleId)))
             .response()
             .redirectUri
         

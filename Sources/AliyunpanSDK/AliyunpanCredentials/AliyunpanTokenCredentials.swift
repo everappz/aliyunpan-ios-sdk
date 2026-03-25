@@ -14,7 +14,7 @@ class AliyunpanTokenCredentials: AliyunpanCredentialsProtocol {
         self.token = token
     }
     
-    func authorize(appId: String, scope: String) async throws -> AliyunpanToken {
+    func authorize(appId: String, scope: String, bundleId: String) async throws -> AliyunpanToken {
         token
     }
 }
